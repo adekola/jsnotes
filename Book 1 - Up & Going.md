@@ -81,7 +81,7 @@ The most common use of closures is in the **Module pattern** which entails creat
 
 **Attention** 
 
-> `this` is not what you think it is. Coming from an OOP background, it's easy to expect `this` in JS to behave familiarly. Not so. If a > function has `this` reference within it, that usually points to an object. The particular object depends on how the function was called and not always or necessarily the function itself.
+> `this` is not what you think it is. Coming from an OOP background, it's easy to expect `this` in JS to behave familiarly. Not so. it's dynamically bound based on how the function is executed. The particular object depends on how the function was called and not always or necessarily the function itself.
 
 ###Prototypes
 
