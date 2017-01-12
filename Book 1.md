@@ -75,24 +75,29 @@ What is not so obvious is that `fxn` is actually just a variable holding the fun
 ```
 
 **Closures**
+
 A closure can be thought of as a way to remember, and continue to access a function's scope even when the function is done running. 
 The most common use of closures is in the **Module pattern** which entails creating a private implementation and exposing same via a public API.
 
 **Attention** 
-> `this` is not what you think it is. Coming from an OOP background, it's easy to expect `this` in JS to behave familiarly. Not so. If a > function has `this` reference within it,
-> that usually points to an object. The particular object depends on how the function was called. `this` doesn't refer to the function itself.
 
+> `this` is not what you think it is. Coming from an OOP background, it's easy to expect `this` in JS to behave familiarly. Not so. If a > function has `this` reference within it, that usually points to an object. The particular object depends on how the function was called and not always or necessarily the function itself.
 
+###Prototypes
 
+If you reference a property on an object, if that property doesn't exist on the object, JS will automatically use that object's internal prototype refrence to find another object on which to locate the property. That prototype link is established at the time of object creation. Think in terms of an actual call to the `Object.create()` method.
 
+> Do not abuse prototype linking by thinking of it as a sort of pseudo-class feature in JS. A more appropriate way to view it is as a means for "behavior delegation" -  a way to delegate from one object to another for needed behavior.
 
+####Polyfill
+[Polyfill](https://remysharp.com/2010/10/08/what-is-a-polyfill) is one means of accommodating holder browsers which have not yet implemented newer JS features. It involves taking a new feature and producing a piece of code which is equivalent and can run on older browsers. and It's best practise to use veted sets of polyfills such as [ES5-Shim](https://github.com/es-shims/es5-shim) as well as [ES6-Shim](https://github.com/es-shims/es6-shim) 
 
+####Transpiling 
+Transpiling (transforming + compiling) is the other option of supporting older browsers. It converts newer code into it's older equivalent. You'll typically insert the transpiler into your build process or as part of the linter for your minifier.
 
+> In view of the pratical and important role of transpiler, consider unsing them as an integral part of your dev process. As the JS language continues to evolve, the ability to use new lang features while supporting older environments will be continue to be important.
 
+[Babel](https://babeljs.io/) and [Traceur](https://github.com/google/traceur-compiler) are good transpiler options.
 
-
-
-
-
-
-
+####Non-Javascript
+As JS is written to be run in environments (browsers and servers), there'll be some part of JS code you'll write which use functions and objects that are not part of JS itself. For example, the DOM. `document` is a "host object", and the methods it exposes are but a thinly wrapped APi over built-in broswer implementations.
