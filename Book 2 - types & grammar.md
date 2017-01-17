@@ -1,4 +1,4 @@
-##Types
+#Chapter 1 - Types
 
 > A type is an intrinsic, built-in set of characteristics that uniquely identifies the behavior of a particular value and distinguishes it from other values, both to the engine and to the developer.
 
@@ -53,4 +53,10 @@ typeof b; // undefined
 
 Although b is obviously undeclared, `typeof` indicates it's undefined. You should be aware of this gotcha. `undefined` may actually infer undeclared. Well, this is in fact a safety guard in that, `typeof` will not return a `ReferenceError` due to a variable being undeclared. Quite a handy feature.
 
+
+#Chapter 2 - Values
+##Arrays
+Arrays are just containers which can hold heterogenous values. More-so, unlike other languages e.g C# and Java, you dont need to pre size your array in JS.
+
+Arrays can have string keys/properties assigned to them, which do no count towards the length of the array.
 
